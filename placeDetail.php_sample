@@ -1,0 +1,41 @@
+<?php 
+ // key: 'AIzaSyAUm2Qo3dbqOiUF2e4iTw0T2vlV60C0zzc',
+	if(isset($_GET['place_id']))
+	 {
+	 	$url = "https://maps.googleapis.com/maps/api/place/details/json?";
+	 	$url = $url."&key={your key}}&placeid=".$_GET['place_id'];
+		$jsonfile = file_get_contents($url,true);
+		$jsonarray = json_decode($jsonfile,true);
+		$res = manuplateData($jsonarray);
+		// var_dump($jsonfile);
+		echo json_encode($res);
+	 }
+
+	 // {
+  //   id: 'Marker 2',
+  //   //coords: [42.307890, -83.068468], // GPS coords
+  //   url: 'http://www.tiloweb.com', // Link to redirect onclick (optional)
+  //   id: 'marker1', // Unique ID for your marker
+  //   title: 'Marker n°1', // Title
+  //   text:  '<Strong>University of Windsor, </Strong>', // HTML content
+  //   address: '403 Sunset Avenue, Widnsor, Ontario, Canada'
+  //  }
+
+	 function manuplateData($json){
+	 	$status = $json["status"];
+	 	$res = $json["result"];
+	 	if($status != "OK") return -1;
+	 	$result = array();
+	 	if(isset($res["icon"]))
+	 		$result["icon"] = $res["icon"];
+	 	if(isset($res["name"]))
+	 		$result["title"] = $res["name"];
+	 	if(isset($res["reviews"]["website"]))
+	 		$result["url"] = $res["reviews"]["website"];
+	 	if(isset($res["formatted_address"]))
+	 		$result["address"] = $res["formatted_address"];
+	 	
+	 	$result["coords"]=array("lat"=>$res["geometry"]["location"]["lat"],"lng"=>$res["geometry"]["location"]["lng"]);
+	 	return $result;
+	 }
+?>

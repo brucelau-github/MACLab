@@ -11,6 +11,7 @@
   <link rel="stylesheet" type="text/css" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
   <!-- hhaccessibility CSS -->
   <link href="css/map.css" rel="stylesheet">
+  <link href="css/jquery-ui.css" rel="stylesheet">
 
   <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,13 +27,16 @@
        <nav class="navbar navbar-default">
         <div class="container-fluid">
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-          <form class="navbar-form navbar-right">
+          <form class="navbar-form navbar-left">
             <div class="form-group">
-              <input id="inputSearch" type="text" class="form-control" placeholder="search your location">
+              <input id="geocomplete" type="text" class="form-control" placeholder="search your location">
             </div>
-            <button id="searchButton" class="btn btn-default ">Search</button>
+            <button id="find" class="btn btn-default ">Search</button>
           </form>
-          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="logout" href="logout.php">logout</a></li>
+          </ul>
+          </div>
         </div>
         </div>
       </nav>
@@ -54,9 +58,10 @@
     <script src="bower_components/jquery/dist/jquery.min.js" ></script>
     <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" ></script>
     <!-- google map -->
- <!--    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUm2Qo3dbqOiUF2e4iTw0T2vlV60C0zzc"></script> -->
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAUm2Qo3dbqOiUF2e4iTw0T2vlV60C0zzc&&libraries=places,drawing&callback=initializingGoogelMap" async defer></script>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key={your google key}&&libraries=places,drawing"></script>
     <script type="text/javascript" src="js/jquery.googlemap.js"></script>
+    <script type="text/javascript" src="js/jquery-ui.js"></script>
     <script type="text/javascript" src="js/main.js"></script>
+
   </body>
   </html>

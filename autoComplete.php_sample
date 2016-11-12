@@ -1,0 +1,26 @@
+<?php 
+ // key: 'AIzaSyAUm2Qo3dbqOiUF2e4iTw0T2vlV60C0zzc',
+	if(isset($_GET['term']))
+	 {
+	 	$url = "https://maps.googleapis.com/maps/api/place/queryautocomplete/json?";
+	 	$url = $url."&key={your key}&input=".$_GET['term'];
+		$jsonfile = file_get_contents($url,true);
+		$predictions = json_decode($jsonfile,true);
+		$res = manuplateData($predictions);
+		echo json_encode($res);
+	 }
+
+	 function manuplateData($json){
+	 	$status = $json["status"];
+	 	$result= array();
+	 	$item = $json['predictions'];
+	 	foreach ($item as $key => $value) { 
+	 		if(isset($value["place_id"])){
+	 			$result[] = array("label"=>$value["description"],"value"=>$value["place_id"]);
+	 		} else {
+	 			$result[] = array("label"=>$value["description"],"value"=>"");
+	 		}
+	 	}
+	 	return $result;
+	 }
+?>
