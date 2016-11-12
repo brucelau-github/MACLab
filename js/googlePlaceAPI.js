@@ -1,5 +1,5 @@
 function queryAutoComplete(keyword){
-  var url = "http://www.localhost.com/autoComplete.php";
+  var url = "autoComplete.php";
   var param = {
     input: keyword
   };

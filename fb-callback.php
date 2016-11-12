@@ -15,7 +15,7 @@ require __DIR__.'/vendor/autoload.php';
 
   function refuseLogin(){
     if( isset($_GET["error_code"])) {
-      header("Location:/login.php");
+      header("Location:login.php");
       exit;
     }
   }
@@ -55,7 +55,7 @@ require __DIR__.'/vendor/autoload.php';
   }
 
   function redirect(){
-    header('Location:/map.php');
+    header('Location:map.php');
   }
 
   function makeUserLogIn(){
@@ -93,37 +93,5 @@ require __DIR__.'/vendor/autoload.php';
   }
 checkUrlStatus();
 getFbStatus();
-// // Logged in
-// echo '<h3>Access Token</h3>';
-// var_dump($accessToken->getValue());
 
-// // The OAuth 2.0 client handler helps us manage access tokens
-// $oAuth2Client = $fb->getOAuth2Client();
-
-// // Get the access token metadata from /debug_token
-// $tokenMetadata = $oAuth2Client->debugToken($accessToken);
-// echo '<h3>Metadata</h3>';
-// var_dump($tokenMetadata);
-
-// // Validation (these will throw FacebookSDKException's when they fail)
-// $tokenMetadata->validateAppId(1590199477955007); // Replace {app-id} with your app id
-// // If you know the user ID this access token belongs to, you can validate it here
-// //$tokenMetadata->validateUserId('123');
-// $tokenMetadata->validateExpiration();
-
-// if (! $accessToken->isLongLived()) {
-//   // Exchanges a short-lived access token for a long-lived one
-//   try {
-//     $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
-//   } catch (Facebook\Exceptions\FacebookSDKException $e) {
-//     echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
-//     exit;
-//   }
-
-//   echo '<h3>Long-lived</h3>';
-//   var_dump($accessToken->getValue());
-// }
-
-
-// header('Location:/map.php');
 ?>

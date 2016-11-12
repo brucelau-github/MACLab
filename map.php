@@ -33,7 +33,10 @@
             </div>
             <button id="find" class="btn btn-default ">Search</button>
           </form>
-          
+          <ul class="nav navbar-nav navbar-right">
+            <li><a id="logout" href="logout.php">logout</a></li>
+          </ul>
+          </div>
         </div>
         </div>
       </nav>
@@ -41,7 +44,6 @@
         <div class="col-md-12">
           <ul class="nav nav-sidebar list-group">
             <?php include 'userProfiles.php'; ?>
-            <pre id="logger">Log:</pre>
           </ul>
         </div>
       </div>

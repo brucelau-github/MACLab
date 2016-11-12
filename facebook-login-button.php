@@ -9,7 +9,7 @@ $fb = new Facebook\Facebook([
 $helper = $fb->getRedirectLoginHelper();
 
 $permissions = ['email']; // Optional permissions
-$loginUrl = $helper->getLoginUrl('http://www.localhost.com/fb-callback.php', $permissions);
+$loginUrl = $helper->getLoginUrl('http://liu1ee.myweb.cs.uwindsor.ca/fb-callback.php', $permissions);
 
 echo '<a class="btn btn-lg btn-primary btn-block" href="' . htmlspecialchars($loginUrl) . '">Log in with Facebook!</a>';
 

@@ -35,5 +35,5 @@ if (!session_id()) {
 // $klein->respond(function () {
 // 	header('Location:/login.php');
 // });
-	header('Location:/login.php');
+	header('Location:login.php');
 ?>

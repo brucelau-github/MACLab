@@ -74,14 +74,14 @@ function isArray(array){
 
 function autoComplete(){
   $("#geocomplete").autocomplete({
-    source: "http://www.localhost.com/autoComplete.php",
+    source: "autoComplete.php",
     select: showOnMap,
   });
 }
 
 function showOnMap(event, ui){
   $("#map").googleMap();
-  var url="http://www.localhost.com/placeDetail.php?place_id=ChIJD7fiBh9u5kcRYJSMaMOCCwQ";
+  var url="placeDetail.php?place_id=ChIJD7fiBh9u5kcRYJSMaMOCCwQ";
   console.log(ui.item.value);
   $.getJSON(url,{place_id: ui.item.value },function(data,status){
     var marker = data;
